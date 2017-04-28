@@ -1,0 +1,5 @@
+Quick Quiz (P. 5)
+
+1) 2 each
+2) == no; === yes (to return true)
+3) boolean
