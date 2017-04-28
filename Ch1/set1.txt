@@ -1,0 +1,178 @@
+Ch 1 Fundamentals - P. 16
+
+Setting and Swapping
+
+var myNumber = 42;
+var myName = 'Akash';
+console.log("Round 1");
+console.log("My number is : " + myNumber + ", my name is: " + myName);
+var temp = myNumber;
+myNumber = myName;
+myName = temp;
+console.log("Round 2");
+console.log("My number is : " + myNumber + ", my name is: " + myName);
+
+
+Print and Count
+
+var count = 0;
+for(var x = 512; x<=4096; x++){
+  if(x%5 == 0){
+    console.log(x);
+    count++;
+  }
+}
+console.log(count);
+
+
+Print -52 to 1066
+
+for(var x = -52; x <= 1066; x++){
+  console.log(x);
+}
+
+
+Multiples of Six
+
+var count = 6;
+while(count <= 60000){
+  console.log(count);
+  count = count + 6;
+}
+
+
+Don’t Worry, Be Happy
+
+function beCheerful(){
+  console.log("good morning!");
+}
+
+for(var x = 0; x<98; x++){
+  beCheerful();
+}
+
+
+Counting, the Dojo Way
+
+for(var i = 1; i<=100; i++){
+  if(i%5 == 0){
+    console.log("Coding");
+    if(i%10 == 0){
+      console.log("Dojo");
+    }
+  } else{
+    console.log(i);
+  }
+}
+
+Multiples of Three — but Not All
+
+for(var i = -300; i<=0; i=i+3){
+  if(i == -3){
+    continue;
+  }
+  if(i == -6){
+    continue;
+  }
+  console.log(i);
+}
+
+
+What Do You Know?
+
+function(incoming){
+  console.log(incoming);
+}
+
+
+Printing Integers with While
+
+var i = 2000;
+while(i<=5280){
+  console.log(i);
+  i++;
+}
+
+
+Whoa, That Sucker’s Huge
+
+var sum=0;
+for(var i = -300000; i<=300000; i++){
+  if(i%2 !== 0){
+    sum = sum+i;
+  }
+}
+console.log(sum);
+
+
+You Say It’s Your Birthday
+
+var birthday_month = 1;
+var birthday_day = 5;
+
+function bdaycheck(num1, num2){
+  if(num1 == birthday_month && num2 == birthday_day){
+    console.log("How did you know?");
+  } else if (num1 == birthday_day && num2 == birthday_month){
+    console.log("How did you know?");
+  } else {
+    console.log("Just another day...");
+  }
+}
+
+
+Countdown By Fours
+
+var start = 2016;
+while(start>0){
+  console.log(start);
+  start = start - 4;
+}
+
+
+Leap Year
+
+function leapYear(year){
+  if(year%4 == 0){
+    if(year%100 == 0){
+      if(year%400 == 0){
+        console.log("Leap year");
+        return;
+      }
+      console.log("nope");
+      return;
+    }
+    console.log("Leap year");
+    return;
+  } else {
+    console.log("nope");
+    return "nope";
+  }
+}
+
+
+Flexible Countdown
+
+function flexCount(lowNum, highNum, mult){
+  for(var i = highNum; i >= lowNum; i--){
+    if(i%mult == 0){
+      console.log(i);
+    }
+  }
+}
+
+
+The Final Countdown
+
+function finalCount(p1, p2, p3, p4){
+  for(var i = p2; i<=p3; i++){
+    if(i%p1 == 0){
+      if(i === p4){
+        continue;
+      }
+      console.log(i);
+    }
+  }
+}
+
+
