@@ -1,0 +1,94 @@
+Ch 2 (P.28)
+
+Sigma
+
+function sigma(num){
+  var sum = 0;
+  for(var x = 0; x<=num; x++){
+    sum = sum + x;
+  }
+  return sum;
+}
+
+
+Factorial
+
+function factorial(num){
+  var product = 1;
+  for(var x=1; x<=num; x++){
+    product = product * x;
+  }
+  return product;
+}
+
+Star Art
+
+function drawLeftStars(num){
+  var output= '';
+  for(x = 0; x<num; x++){
+    output = output + '*';
+  }
+  console.log(output);
+}
+
+function drawRightStars(num){
+  var output = '';
+  for(var x = 0; x<75-num; x++){
+    output = output + " ";
+  }
+  for(var x = 75-num; x<75; x++){
+    output = output + "*";
+  }
+  console.log(output);
+}
+
+function drawCenteredStars(num){
+  var output = '';
+  var whiteSpace = 75 - num;
+  for(var x = 0; x<Math.floor(whiteSpace/2); x++){
+    output = output + ' ';
+  }
+  for(var x =Math.floor(whiteSpace/2); x<Math.floor(whiteSpace/2)+num; x++){
+    output = output + '*';
+  }
+  for(var x = Math.floor(whiteSpace/2) + num; x<75; x++){
+    output = output + " ";
+  }
+  console.log(output);
+}
+
+Character Art
+
+function drawLeftChars(num , char){
+  var output= '';
+  for(x = 0; x<num; x++){
+    output = output + char;
+  }
+  console.log(output);
+}
+
+function drawRightChars(num, char){
+  var output = '';
+  for(var x = 0; x<75-num; x++){
+    output = output + " ";
+  }
+  for(var x = 75-num; x<75; x++){
+    output = output + char;
+  }
+  console.log(output);
+}
+
+function drawCenteredChars(num, char){
+  var output = '';
+  var whiteSpace = 75 - num;
+  for(var x = 0; x<Math.floor(whiteSpace/2); x++){
+    output = output + ' ';
+  }
+  for(var x =Math.floor(whiteSpace/2); x<Math.floor(whiteSpace/2)+num; x++){
+    output = output + char;
+  }
+  for(var x = Math.floor(whiteSpace/2) + num; x<75; x++){
+    output = output + " ";
+  }
+  console.log(output);
+}
