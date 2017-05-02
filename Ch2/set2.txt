@@ -1,0 +1,198 @@
+Ch 2 P.29
+
+Threes and Fives
+
+function threesFives(){
+  var sum = 0;
+  for(var x = 100; x<=4000000; x++){
+    if(x%3 == 0 && x%5 == 0){
+      continue;
+    } else if(x%3 == 0){
+      sum = sum + x;
+    } else if(x%5 == 0){
+      sum = sum+x;
+    }
+  }
+  console.log(sum);
+}
+
+function betterThreesFives(start, end){
+  var sum = 0;
+  for(var x = start; x<=end; x++){
+    if(x%3 == 0 && x%5 == 0){
+      continue;
+    } else if(x%3 == 0){
+      sum = sum + x;
+    } else if(x%5 == 0){
+      sum = sum+x;
+    }
+  }
+  console.log(sum);
+}
+
+
+Generate Coin Change
+
+function generateCoinChange(cents){
+  var q = cents%25;
+  if(q!==0){
+    q = Math.floor(cents/25);
+    var rQ = cents%25;
+    var d = rQ%10;
+    if(d!==0){
+      d = Math.floor(rQ/10);
+      var rD = rQ%10;
+      var n = rD%5;
+      if(n !== 0){
+        n = Math.floor(rD/5);
+        var rN = rD%5;
+        var p = rN
+      }else{
+        n = rD/5;
+      }
+    }else{
+      d = rQ/10;
+    }
+  }else{
+    q = cents/25;
+  }
+  console.log(cents + " cents can be represented by:");
+  console.log("quarters: " + q);
+  if(d !== undefined){
+    console.log("dimes: " + d);
+  }
+  if(n !== undefined){
+    console.log("nickels: " + n);
+  }
+  if(p !== undefined){
+    console.log("pennies: " + p);
+  }
+}
+
+Second
+
+function generateCoinChange(cents){
+  var q = Math.floor(cents/25);
+  var d = Math.floor((cents-(25*q))/10);
+  var n = Math.floor((cents-(25*q+10*d))/5);
+  var p = cents - (25*q+10*d + 5*n);
+
+  console.log(cents + " cents can be represented by:");
+  console.log("quarters: " + q);
+  console.log("dimes: " + d);
+  console.log("nickels: " + n);
+  console.log("pennies: " + p);
+}
+
+Third
+
+function generateCoinChange(cents){
+  var a = Math.floor(cents/100);
+  var h = Math.floor((cents - 100*a)/50);
+  var q = Math.floor((cents - (100*a + 50*h))/25);
+  var d = Math.floor((cents-(100*a + 50*h + 25*q))/10);
+  var n = Math.floor((cents-(100*a + 50*h + 25*q+10*d))/5);
+  var p = cents - (100*a + 50*h + 25*q+10*d + 5*n);
+
+  console.log(cents + " cents can be represented by:");
+  console.log("dollars: " + a);
+  console.log("half-dollars: " + h);
+  console.log("quarters: " + q);
+  console.log("dimes: " + d);
+  console.log("nickels: " + n);
+  console.log("pennies: " + p);
+}
+
+
+Messy Math Mashup
+
+function messyMath(num){
+  var sum = 0;
+  for(var x = 0; x<=num; x++){
+    if(num/x === 3){
+      return -1;
+    }
+    if(x%3 === 0){
+      continue;
+    }
+    if(x%7 === 0){
+      sum = sum + x + x;
+    } else {
+      sum = sum+x;
+    }
+  }
+  return sum;
+}
+
+
+Twelve-Bar Blues
+
+function twelve(){
+  for(var x = 1; x<=12; x++){
+    console.log(x);
+    console.log("chick");
+    console.log("boom");
+    console.log("chick");
+  }
+}
+
+
+Fibonacci
+
+function fibonacci(num){
+  if(num === 0){
+    return 0;
+  }
+  if(num === 1){
+    return 1;
+  }
+  return fibonacci(num-1) + fibonacci(num-2);
+}
+
+
+Sum to One Digit
+
+function sumToOne(num){
+  if(num.toString().length === 1){
+    return num;
+  }
+  var stringCheese = num.toString();
+  var sum = 0;
+  for(var x = 0; x<stringCheese.length; x++){
+    this_digit = Number(stringCheese[x]);
+    sum = sum + this_digit;
+  }
+  return sumToOne(sum);
+}
+
+Clock Hand Angles
+
+function clockHandAngles(seconds){
+  var hourHandDegrees = ((seconds%43200)/43200) * 360;
+  var minuteHandDegrees = ((seconds%3600)/3600) * 360;
+  var secondHandDegrees = ((seconds%60)/60) * 360;
+  console.log("Hour hand: " + hourHandDegrees + " degs. Minute hand: " + minuteHandDegrees + " degs. Second hand: " + secondHandDegrees + " degs.");
+}
+
+Second
+
+function clockHandAngles(seconds){
+  var hourHandDegrees = ((seconds%43200)/43200) * 360;
+  var minuteHandDegrees = ((seconds%3600)/3600) * 360;
+  var secondHandDegrees = ((seconds%60)/60) * 360;
+  var weekHandDegrees = ((seconds%604800)/604800) *360;
+  console.log("Week hand: " + weekHandDegrees + " degs.")
+  console.log("Hour hand: " + hourHandDegrees + " degs. Minute hand: " + minuteHandDegrees + " degs. Second hand: " + secondHandDegrees + " degs.");
+}
+
+
+Is Prime
+
+function isPrime(number){
+  for(var i = 2; i<number; i++){
+    if(number%i === 0){
+      return false;
+    }
+  }
+  return true;
+}
