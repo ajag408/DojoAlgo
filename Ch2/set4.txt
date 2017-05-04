@@ -1,0 +1,121 @@
+ch 2 p. 32
+
+Extract-o-matic
+
+function extractDigit(num, digitNum){
+  if(num.toString().length < digitNum){
+    return 0;
+  }
+  var stringCheese = num.toString();
+  reversed = [];
+  for(var i = stringCheese.length-1; i>=0; i--){
+    reversed.push(stringCheese[i]);
+  }
+  return Number(reversed[digitNum]);
+}
+
+Second
+
+
+function extractDigit(num, digitNum){
+  if(digitNum>=0){
+    num = Math.trunc(num);
+    if(num.toString().length < digitNum){
+      return 0;
+    }
+    var stringCheese = num.toString();
+    reversed = [];
+    for(var i = stringCheese.length-1; i>=0; i--){
+      reversed.push(stringCheese[i]);
+    }
+    return Number(reversed[digitNum]);
+  } else{
+    var eliminate = Math.trunc(num);
+    num = num - eliminate;
+    if(num.toString().length<=1){
+      return "This decimal does not exist";
+    }
+    var stringCheese = num.toString();
+    var cheapThrills = [];
+    for(var y = 1; y<stringCheese.length; y++){
+      cheapThrills.push(stringCheese[y]);
+    }
+    digitNum = digitNum * (-1);
+    return cheapThrills[digitNum];
+  }
+}
+
+Third
+
+function extractDigit(num, digitNum){
+  if(digitNum>=0){
+    num = Math.abs(Math.trunc(num));
+    if(num.toString().length < digitNum){
+      return 0;
+    }
+    var stringCheese = num.toString();
+    reversed = [];
+    for(var i = stringCheese.length-1; i>=0; i--){
+      reversed.push(stringCheese[i]);
+    }
+    return Number(reversed[digitNum]);
+  } else{
+    num = Math.abs(num);
+    var eliminate = Math.trunc(num);
+    num = num - eliminate;
+    if(num.toString().length<=1){
+      return "This decimal does not exist";
+    }
+    var stringCheese = num.toString();
+    var cheapThrills = [];
+    for(var y = 1; y<stringCheese.length; y++){
+      cheapThrills.push(stringCheese[y]);
+    }
+    digitNum = digitNum * (-1);
+    return cheapThrills[digitNum];
+  }
+}
+
+
+Most Significant Digit
+
+function significant(num){
+  if(num === 0){
+    return "no significant digits";
+  }
+  var firstCheck = Math.trunc(num);
+  if(firstCheck === 0){
+    while(num%1 !== 0 && Math.trunc(num) === 0){
+      num = num*10;
+    }
+    return Math.trunc(num)%10;
+  } else{
+    while(Math.trunc(firstCheck)%1 === 0 && Math.trunc(firstCheck) !== 0){
+      firstCheck = firstCheck * 0.1;
+    }
+    firstCheck = firstCheck*10;
+    return Math.trunc(firstCheck)%10;
+  }
+}
+
+Second
+
+function significant(num){
+  num = Math.abs(num);
+  if(num === 0){
+    return "no significant digits";
+  }
+  var firstCheck = Math.trunc(num);
+  if(firstCheck === 0){
+    while(num%1 !== 0 && Math.trunc(num) === 0){
+      num = num*10;
+    }
+    return Math.trunc(num)%10;
+  } else{
+    while(Math.trunc(firstCheck)%1 === 0 && Math.trunc(firstCheck) !== 0){
+      firstCheck = firstCheck * 0.1;
+    }
+    firstCheck = firstCheck*10;
+    return Math.trunc(firstCheck)%10;
+  }
+}
