@@ -1,0 +1,176 @@
+Ch 2 P.33
+
+Gaming Fun
+
+function rollOne(){
+  return Math.floor(Math.random()*6)+1;
+}
+
+function playFives(num){
+  for(var i = 0; i<num; i++){
+    var this_roll = rollOne();
+    console.log(this_roll);
+    if(this_roll === 5){
+      console.log("That's good luck");
+    }
+  }
+}
+
+function playStatistics(){
+  var min = 6;
+  var max = 1;
+  for(var i = 0; i<8; i++){
+    var this_roll = rollOne();
+    if(this_roll>max){
+      max = this_roll;
+    }
+    if(this_roll<min){
+      min = this_roll;
+    }
+  }
+  console.log(min);
+  console.log(max);
+}
+
+function playStatistics2(){
+  var min = 6;
+  var max = 1;
+  var sum = 0;
+  for(var i = 0; i<8; i++){
+    var this_roll = rollOne();
+    if(this_roll>max){
+      max = this_roll;
+    }
+    if(this_roll<min){
+      min = this_roll;
+    }
+    sum = sum + this_roll;
+  }
+  console.log(min);
+  console.log(max);
+  console.log(sum);
+}
+
+function playStatistics3(num){
+  var min = 6;
+  var max = 1;
+  var sum = 0;
+  for(var i = 0; i<num; i++){
+    var this_roll = rollOne();
+    if(this_roll>max){
+      max = this_roll;
+    }
+    if(this_roll<min){
+      min = this_roll;
+    }
+    sum = sum + this_roll;
+  }
+  console.log(min);
+  console.log(max);
+  console.log(sum);
+}
+
+function playStatistics4(num){
+  var min = 6;
+  var max = 1;
+  var sum = 0;
+  for(var i = 0; i<num; i++){
+    var this_roll = rollOne();
+    if(this_roll>max){
+      max = this_roll;
+    }
+    if(this_roll<min){
+      min = this_roll;
+    }
+    sum = sum + this_roll;
+  }
+  var avg = sum/num;
+  console.log(min);
+  console.log(max);
+  console.log(avg);
+}
+
+
+Statistics Until Doubles
+
+function rollOne(){
+  return Math.floor(Math.random()*20)+1;
+}
+
+function untilDoubles(){
+  var arr = [];
+  var first_roll = rollOne();
+  var min = first_roll;
+  var max = first_roll;
+  var sum = first_roll;
+  arr.push(first_roll);
+  var second_roll = rollOne();
+  if(second_roll>max){
+    max = second_roll;
+  }
+  if(second_roll<min){
+    min = second_roll;
+  }
+  sum += second_roll;
+  arr.push(second_roll);
+  var numRolls = 2;
+  for(var x = 1; x<arr.length; x++){
+    if(arr[x] === arr[x-1]){
+      break;
+    } else{
+      var this_roll = rollOne();
+      if(this_roll>max){
+        max = this_roll;
+      }
+      if(this_roll<min){
+        min = this_roll;
+      }
+      sum+=this_roll;
+      arr.push(this_roll);
+      numRolls++;
+    }
+  }
+  var avg = sum/numRolls;
+  console.log("avg: " + avg);
+  console.log("num rolls: " + numRolls);
+  console.log("min: " + min);
+  console.log("max: " + max);
+}
+
+
+Claire is Where?
+
+var x = 0;
+var y = 0;
+
+function reset(){
+  x = 0;
+  y = 0;
+}
+
+function moveBy(xOffset, yOffset){
+  x += xOffset;
+  y += yOffset;
+}
+
+function xLocation(){
+  return x;
+}
+
+function yLocation(){
+  return y;
+}
+
+function distFromHome(){
+  return Math.sqrt(x*x + y*y)
+}
+
+reset();
+moveBy(1,-2);
+moveBy(3,1);
+var a = xLocation();
+console.log(a);
+var b = yLocation();
+console.log(b);
+var c = distFromHome();
+console.log(c);
