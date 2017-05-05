@@ -1,0 +1,97 @@
+Ch 3 P.38
+
+Array: Push Front
+
+function pushFront(arr, value){
+  arr[arr.length] = value;
+  for(var i = arr.length-1; i>0; i--){
+    var temp = arr[i];
+    arr[i] = arr[i-1];
+    arr[i-1] = temp;
+  }
+  console.log(arr);
+}
+
+
+Array: Pop Front
+
+function popFront(arr){
+  var temp = arr[0];
+  arr[0] = arr[arr.length];
+  arr[arr.length] = temp;
+  return arr.pop()
+}
+
+Array: Insert At
+
+function insertAt(arr, idx, val){
+  arr[arr.length] = val;
+  for(var i = arr.length-1; i>idx; i--){
+    var temp = arr[i];
+    arr[i] = arr[i-1];
+    arr[i-1] = temp;
+  }
+  console.log(arr);
+}
+
+Array: Remove At
+
+function removeAt(arr, idx){
+  var temp = arr[idx];
+  arr[idx] = arr[arr.length];
+  arr[arr.length] = temp;
+  return arr.pop();
+}
+
+Array: Swap Pairs
+
+function swapPairs(arr){
+  for(var i = 0; i<arr.length; i = i + 2){
+    if(arr[i+1] !== undefined){
+      var temp = arr[i];
+      arr[i] = arr[i+1];
+      arr[i+1] = temp;
+    }
+  }
+  console.log(arr);
+}
+
+Array: Remove Duplicates
+
+function removeAt(arr, idx){
+  var temp = arr[idx];
+  arr[idx] = arr[arr.length];
+  arr[arr.length] = temp;
+  arr.pop();
+  return arr;
+}
+
+function removeDuplicates(arr){
+  for(var i = 0; i<arr.length; i++){
+    if(arr[i+1] === arr[i]){
+      while(arr[i+1] === arr[i]){
+        arr = removeAt(arr, i);
+        i = i+1;
+      }
+      arr = removeAt(arr, i);
+    }
+  }
+  console.log(arr);
+}
+
+Second
+
+function removeDuplicates(arr){
+  for(var i = 0; i<arr.length; i++){
+    if(arr[i+1] === arr[i]){
+      arr = removeAt(arr, i);
+      var marked = i+1;
+    } else{
+      if(marked !== undefined){
+        arr = removeAt(arr, marked);
+      }
+      marked = undefined;
+    }
+  }
+  console.log(arr);
+}
