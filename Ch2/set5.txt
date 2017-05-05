@@ -174,3 +174,294 @@ var b = yLocation();
 console.log(b);
 var c = distFromHome();
 console.log(c);
+
+
+Date, on a Deserted Island
+
+function weekdayName(weekdayNum){
+  switch(weekdayNum){
+    case 1:
+      console.log("Sunday");
+      break;
+    
+    case 2:
+      console.log("Monday");
+      break;
+      
+    case 3:
+      console.log("Tuesday");
+      break;
+      
+    case 4:
+      console.log("Wednesday");
+      break;
+      
+    case 5:
+      console.log("Thursday");
+      break;
+      
+    case 6:
+      console.log("Friday");
+      break;
+      
+    case 7:
+      console.log("Saturday");     
+  }
+}
+
+function weekdayName2(num){
+  switch(num%7){
+    case 1:
+      return "Sunday";
+      break;
+    
+    case 2:
+      return "Monday";
+      break;
+      
+    case 3:
+      return "Tuesday";
+      break;
+      
+    case 4:
+      return "Wednesday";
+      break;
+      
+    case 5:
+      return "Thursday";
+      break;
+      
+    case 6:
+      return "Friday";
+      break;
+      
+    case 0:
+      return "Saturday";     
+  }
+}
+
+function someDays(){
+  for(var i = 0; i<17; i++){
+    num = Math.floor(Math.random()*365) + 1;
+    weekdayName2(num);
+  }
+}
+
+function monthName(monthNum){
+  monthArr = ['January', 'February', "March", 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  return monthArr[monthNum-1];
+}
+
+function monthToDays(monthNum){
+  monthArr = ['January', 'February', "March", 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  var this_month = monthArr[monthNum-1];
+  switch(this_month){
+    case 'January':
+      return 31;
+    case 'February':
+      return 28;
+    case 'March':
+      return 31;
+    case 'April':
+      return 30;
+    case 'May':
+      return 31;
+    case 'June':
+      return 30;
+    case 'July':
+      return 31;
+    case 'August':
+      return 31;
+    case 'September':
+      return 30;
+    case 'October':
+      return 31;
+    case 'November':
+      return 30;
+    case 'December':
+      return 31;
+  }
+}
+
+function dayToMonth(dayNum){
+  if(dayNum>0 && dayNum<=31){
+    monthNum = 1;
+  }
+  if(dayNum>31 && dayNum<=59){
+    monthNum = 2;
+  }
+  if(dayNum>59 && dayNum<=90){
+    monthNum = 3;
+  }
+  if(dayNum>90 && dayNum<=120){
+    monthNum = 4;
+  }
+  if(dayNum>120 && dayNum<=151){
+    monthNum = 5;
+  }
+  if(dayNum>151 && dayNum<=181){
+    monthNum = 6;
+  }
+  if(dayNum>181 && dayNum<=212){
+    monthNum = 7;
+  }
+  if(dayNum>212 && dayNum<=243){
+    monthNum = 8;
+  }
+  if(dayNum>243 && dayNum<=273){
+    monthNum = 9;
+  }
+  if(dayNum>273 && dayNum<=304){
+    monthNum = 10;
+  }
+  if(dayNum>304 && dayNum<=334){
+    monthNum = 11;
+  }
+  if(dayNum>334 && dayNum<=365){
+    monthNum = 12;
+  }
+  monthArr = ['January', 'February', "March", 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  return monthArr[monthNum-1];
+}
+
+function fullDate(dayNum, leapYear){
+   if(dayNum>0 && dayNum<=31){
+    var low = 0;
+    monthNum = 1;
+  }
+  if(leapYear === true){
+    if(dayNum>31 && dayNum<=60){
+      var low = 31;
+      monthNum = 2;
+    }
+    if(dayNum>60 && dayNum<=91){
+      var low = 60;  
+      monthNum = 3;
+    }
+    if(dayNum>91 && dayNum<=121){
+      var low = 91;
+      monthNum = 4;
+    }
+    if(dayNum>121 && dayNum<=152){
+      var low = 121;
+      monthNum = 5;
+    }
+    if(dayNum>152 && dayNum<=182){
+      var low = 152;   
+      monthNum = 6;
+    }
+    if(dayNum>182 && dayNum<=213){
+      var low = 182;   
+      monthNum = 7;
+    }
+    if(dayNum>213 && dayNum<=244){
+      var low = 213;  
+      monthNum = 8;
+    }
+    if(dayNum>244 && dayNum<=274){
+      var low = 244;   
+      monthNum = 9;
+    }
+    if(dayNum>274 && dayNum<=305){
+      var low = 274;   
+      monthNum = 10;
+    }
+    if(dayNum>305 && dayNum<=335){
+      var low = 305;   
+      monthNum = 11;
+    }
+    if(dayNum>335 && dayNum<=366){
+      var low = 335;   
+      monthNum = 12;
+    }
+  } else{
+    if(dayNum>31 && dayNum<=59){
+      var low = 31;
+      monthNum = 2;
+    }
+    if(dayNum>59 && dayNum<=90){
+      var low = 59;  
+      monthNum = 3;
+    }
+    if(dayNum>90 && dayNum<=120){
+      var low = 90;
+      monthNum = 4;
+    }
+    if(dayNum>120 && dayNum<=151){
+      var low = 120;
+      var high = 151;
+      monthNum = 5;
+    }
+    if(dayNum>151 && dayNum<=181){
+      var low = 151;   
+      monthNum = 6;
+    }
+    if(dayNum>181 && dayNum<=212){
+      var low = 181;   
+      monthNum = 7;
+    }
+    if(dayNum>212 && dayNum<=243){
+      var low = 212;  
+      monthNum = 8;
+    }
+    if(dayNum>243 && dayNum<=273){
+      var low = 243;   
+      monthNum = 9;
+    }
+    if(dayNum>273 && dayNum<=304){
+      var low = 273;   
+      monthNum = 10;
+    }
+    if(dayNum>304 && dayNum<=334){
+      var low = 304;   
+      monthNum = 11;
+    }
+    if(dayNum>334 && dayNum<=365){
+      var low = 334;   
+      monthNum = 12;
+    }
+  }
+  monthArr = ['January', 'February', "March", 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  var day = weekdayName2(dayNum);
+  var month = monthArr[monthNum-1];
+  var monthDay = dayNum - low;
+  return day +", " + month + " " + monthDay+ ", ";
+}
+
+function fullDate2(dayNum){
+  var quadDay = dayNum % 1461;
+  var janma = Math.floor(dayNum/1461) * 4;
+  if(quadDay<=1095){
+    var inYearDay = quadDay%365;
+    var inYearAdd = Math.floor(quadDay/365) + 1;
+    var leapYear = false;
+  } else{
+    var inYearDay = quadDay%366;
+    var inYearAdd = 4;
+    var leapYear = true;
+  }
+  var this_year = 2016 + janma + inYearAdd;
+  var primaryString = fullDate(inYearDay, leapYear);
+  return primaryString + this_year;
+}
+
+function fullDate3(dayNum){
+  var quadDay = dayNum % 1461;
+  var janma = Math.floor(dayNum/1461) * 4;
+  if(quadDay<=1095){
+    var inYearDay = quadDay%365;
+    var inYearAdd = Math.floor(quadDay/365) + 1;
+    var leapYear = false;
+  } else{
+    var inYearDay = quadDay%366;
+    var inYearAdd = 4;
+    if(janma === 20 || janma === 45 || janma === 70){
+      var leapYear = false;
+    } else {
+      var leapYear = true;
+    }
+  }
+  var this_year = 2016 + janma + inYearAdd;
+  var primaryString = fullDate(inYearDay, leapYear);
+  return primaryString + this_year;
+}
