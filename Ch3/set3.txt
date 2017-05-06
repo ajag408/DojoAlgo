@@ -1,0 +1,127 @@
+Ch3 P.40
+
+Array: Reverse
+
+function reverse(arr){
+  for(var i = 0; i<Math.floor(arr.length/2); i++){
+    var temp = arr[i];
+    arr[i] = arr[arr.length-1-i];
+    arr[arr.length-1-i] = temp;
+  }
+  console.log(arr);
+}
+
+Array: Rotate
+
+function pushFront(arr, value){
+  arr[arr.length] = value;
+  for(var i = arr.length-1; i>0; i--){
+    var temp = arr[i];
+    arr[i] = arr[i-1];
+    arr[i-1] = temp;
+  }
+  return arr;
+}
+
+function rotateArr(arr, shiftBy){
+  for(var i = 0; i<shiftBy; i++){
+    var last = arr.pop();
+    pushFront(arr, last);
+  }
+  console.log(arr);
+}
+
+Second
+
+function popFront(arr){
+  var temp = arr[0];
+  arr[0] = arr[arr.length];
+  arr[arr.length] = temp;
+  var front = arr.pop();
+  for(var i = 0; i<arr.length; i++){
+    arr[i] = arr[i+1];
+  }
+  return front;
+}
+
+
+function rotateLeft(arr, shiftBy){
+  for(var i = 0; i<shiftBy; i++){
+    var front = popFront(arr);
+    arr[arr.length-1] = front;
+  }
+  console.log(arr);
+}
+
+Third
+
+function pushFront(arr, value){
+  arr[arr.length] = value;
+  for(var i = arr.length-1; i>0; i--){
+    var temp = arr[i];
+    arr[i] = arr[i-1];
+    arr[i-1] = temp;
+  }
+}
+
+function rotateArr(arr, shiftBy){
+  for(var i = 0; i<shiftBy; i++){
+    var last = arr.pop();
+    pushFront(arr, last);
+  }
+  console.log(arr);
+}
+
+Fourth
+(same as third)
+
+
+Array: Filter Range
+
+function removeAt(arr, idx){
+  var temp = arr[idx];
+  arr[idx] = arr[arr.length];
+  arr[arr.length] = temp;
+  arr.pop();
+}
+
+function filterRange(arr, min, max){
+  for(var i = 0; i<arr.length; i++){
+    if(arr[i]>min && arr[i]<max){
+      removeAt(arr, i);
+    }
+  }
+  return arr;
+}
+
+
+Array: Concat
+
+function concat(arr1, arr2){
+  var newArr = [];
+  for(var i = 0; i<arr1.length; i++){
+    newArr.push(arr1[i]);
+  }
+  for(var j = 0; j<arr2.length; j++){
+    newArr.push(arr2[j]);
+  }
+  return newArr;
+}
+
+
+Skyline Heights
+
+function heights(arr){
+  var benchmark = 0
+  var visible = [];
+  for(var i = 0; i<arr.length; i++){
+    if(arr[i]<0 || arr[i]===0){
+      continue;
+    }
+    if(arr[i]>benchmark){
+      benchmark = arr[i];
+      visible.push(arr[i]);
+    }
+  }
+  return visible;
+}
