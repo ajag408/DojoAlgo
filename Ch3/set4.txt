@@ -1,0 +1,136 @@
+Ch 3 P.42
+
+Array: Remove Negatives
+
+function removeAt(arr, idx){
+  var temp = arr[idx];
+  arr[idx] = arr[arr.length];
+  arr[arr.length] = temp;
+  arr.pop();
+}
+
+function removeNegatives(arr){
+	for(var x = 0; x<arr.length; x++){
+  	if(arr[x]<0){
+    	removeAt(arr, x);
+    }
+  }
+  return arr;
+}
+
+Array: Second-to-Last
+
+function second2L(arr){
+	if(arr.length>1){
+  	return arr[arr.length-2];
+  } else {
+  	return null;
+  }
+}
+
+
+Array: Second-Largest
+
+function secondLargest(arr){
+	if(arr.length < 2){
+  	return null;
+  }
+  var max = arr[0];
+  var maxIdx = 0;
+  for(var x = 1; x<arr.length; x++){
+  	if(arr[x]>max){
+    	max = arr[x];
+    	maxIdx = x;
+    }
+  }
+  var runner = 0;
+  while(runner == maxIdx){
+  	runner = runner + 1;
+  }
+  var max2 = arr[runner];
+  for(var x = 0; x<arr.length; x++){
+  	if(arr[x] > max2 && arr[x]<=max && x !== maxIdx){
+    	max2 = arr[x];
+    }
+  }
+  return max2;
+}
+
+
+Array: Nth-to-Last
+
+function nEnd(arr, N){
+	if(arr.length<N){
+  	return null;
+  }
+  return arr[arr.length-N];
+}
+
+
+Array: Nth-Largest
+
+function nLarge(arr, N){
+	if(N<=0){
+  	return "enter proper N value";
+  }
+  var largerCount = [];
+  for(var x = 0; x<arr.length; x++){
+  	var this_one = arr[x];
+    var this_largerCount = 0;
+    var valueChecker = [];
+    var isIn = false;
+    for(var y = 0; y<arr.length; y++){
+    	if(arr[y] > this_one){
+     		for(var z = 0; z<valueChecker.length; z++){
+        	if(valueChecker[z] === arr[y]){
+          	isIn = true;
+          }
+        }
+        if(isIn === false){
+        	valueChecker.push(arr[y]);
+      	  this_largerCount++; 
+        }
+      }
+    }
+    largerCount.push(this_largerCount);
+  }
+  var maxN = largerCount[0];
+  for(var w = 0; w<largerCount.length; w++){
+  	if(largerCount[w] > maxN){
+    	maxN = largerCount[w];
+    }
+  }
+  if(N-1 > maxN){
+  	return null;
+  }
+  for(var v = 0; v<largerCount.length; v++){
+  	if(N-1 == largerCount[v]){
+    	return arr[v];
+    }
+  }
+}
+
+
+Credit Card Validation
+
+function isCreditCardValid(digitArr){
+	var last_digit = digitArr.pop();
+  for(var x = digitArr.length-1; x>=0; x = x-2){
+  	digitArr[x] = digitArr[x] * 2;
+  }
+  for(var y = 0; y<digitArr.length; y++){
+  	if(digitArr[y] > 9){
+    	digitArr[y] = digitArr[y] - 9;
+    }
+  }
+  var sum = 0
+  for(var z = 0; z<digitArr.length; z++){
+  	sum = sum + digitArr[z];
+  }
+  sum = sum + last_digit;
+  if(sum%10 === 0){
+  	return true;
+  } else{
+  	return false;
+  }
+}
