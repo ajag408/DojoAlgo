@@ -1,0 +1,70 @@
+Ch 4 P.50
+
+Remove Blanks
+
+function removeBlanks(str){
+  str = str.split(' ')
+  str = str.join('')
+  return str
+}
+
+String: Get Digits
+
+function getDigits(str){
+  intStr = ''
+  for(var i = 0; i<str.length; i++){
+    if(str[i] == '0' || str[i] == '1' || str[i] == '2' || str[i] == '3' || str[i] == '4' || str[i] == '5' || str[i] == '6' || str[i] == '7' || str[i] == '8' || str[i] == '9'){
+      intStr = intStr + str[i]
+    }
+  }
+  intStr = Number(intStr)
+  return intStr
+}
+
+Acronyms
+
+function acronym(str){
+  acro = ''
+  wordArr = str.split(" ")
+  console.log(wordArr)
+  for(var i = 0; i<wordArr.length; i++){
+    charArr = wordArr[i].split('')
+    if(charArr.length>0){
+      this_char = charArr[0].toUpperCase()
+      acro = acro + this_char
+    }
+  }
+  return acro
+}
+
+Count Non-Spaces
+
+function nonSpace(str){
+  charArr = str.split('')
+  count = 0
+  for(var i = 0; i<charArr.length; i++){
+    if(charArr[i] !== ' '){
+      count++
+    }
+  }
+  return count
+}
+
+Remove Shorter Strings
+
+function removeAt(arr, idx){
+  var temp = arr[idx];
+  arr[idx] = arr[arr.length];
+  arr[arr.length] = temp;
+  arr.pop();
+  return arr;
+}
+
+function removeShort(arr, val){
+  for(var i = 0; i<arr.length; i++){
+    if(arr[i].length < val){
+      removeAt(arr, i)
+    }
+  }
+  return arr
+}
