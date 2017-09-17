@@ -1,0 +1,111 @@
+Ch 4 P. 51
+
+String: Reverse
+
+function reverseString(str){
+  charArr = str.split('')
+  if(charArr.length%2 == 0){
+    for(var i = 0; i<Math.floor(charArr.length/2); i++){
+      var temp = charArr[i]
+      charArr[i] = charArr[charArr.length-1-i]
+      charArr[charArr.length-1-i] = temp
+    }
+  }
+  str = charArr.join('')
+  return str
+}
+
+Remove Even-Length Strings
+
+function removeAt(arr, idx){
+  var temp = arr[idx];
+  arr[idx] = arr[arr.length-1];
+  arr[arr.length-1] = temp;
+  arr.pop();
+  for(var i = idx; i<arr.length-1; i++){
+    var temp2 = arr[i]
+    arr[i] = arr[i+1]
+    arr[i+1] = temp2
+  }
+  return arr;
+}
+
+function remEven(arr){
+  for(var i = 0; i<arr.length; i++){
+    if(arr[i].length%2 === 0){
+      arr = removeAt(arr, i)
+      i = i-1
+    }
+  }
+  return arr
+}
+
+Integer to Roman Numerals
+
+function intRom(num){
+  roman = ''
+  thou = Math.floor(num/1000);
+  for(var a = 0; a<thou; a++){
+    roman += 'M'
+  }
+  num = num%1000
+  if(num%100 === 9){
+    roman += 'CM'
+    num = num%100
+  } 
+  else{
+    if(num>=500){
+      roman += 'D';
+      num = num%500
+    }
+    hun = Math.floor(num/100)
+    if(hun===4){
+      roman += 'CD'
+    }
+    else{
+      for(var a = 0; a<hun; a++){
+        roman += 'C'
+      }
+    }
+    num = num%100
+    
+  }
+  if(Math.floor(num/10) === 9){
+    roman += 'XC'
+    num = num%10
+  }
+  else{
+    if(num>=50){
+      roman+='L';
+      num = num%50
+    }
+    tens = Math.floor(num/10)
+    if(tens===4){
+      roman += 'XL';
+    }
+    else{
+      for(var a=0; a<tens; a++){
+        roman+='X'
+      }
+    }
+    num = num%10
+  }
+  if(num === 9){
+    roman+='IX'
+  }
+  else{
+    if(num>=5){
+      roman+='V';
+      num = num%5
+    }
+    if(num===4){
+      roman += 'IV';
+    }
+    else{
+      for(var a = 0; a<num; a++){
+        roman += 'I';
+      }
+    }
+  }
+  return roman
+}
