@@ -109,3 +109,58 @@ function intRom(num){
   }
   return roman
 }
+
+Roman Numerals to Integer
+
+function makeInt(str){
+  romArr = []
+  for(var i = 0; i<str.length; i++){
+    switch (str[i]) {
+      case 'I':
+        if(str[i+1] == 'V' || str[i+1] == 'X'){
+          romArr.push(str[i] + str[i+1]);
+          i = i+1;
+        } else {
+          romArr.push(str[i]);
+        }
+        break;
+      case 'X':
+        if(str[i+1] == 'L' || str[i+1] == 'C'){
+           romArr.push(str[i] + str[i+1]);
+           i = i+1;
+         } else {
+          romArr.push(str[i]);
+         }
+        break;
+      case 'C':
+        if(str[i+1] == 'D' || str[i+1] == 'M'){
+           romArr.push(str[i] + str[i+1]);
+           i = i+1;
+         } else {
+          romArr.push(str[i]);
+         }
+        break;        
+      default: 
+        romArr.push(str[i]);
+    }
+  }
+  num = 0
+  for(var j = 0; j<romArr.length; j++){
+    switch (romArr[j]) {
+      case 'I': num = num+1; break;
+      case 'V': num = num+5; break;
+      case 'X': num = num+10; break;
+      case 'L': num = num+50; break;
+      case 'C': num = num+100; break;
+      case 'D': num = num+500; break;
+      case 'M': num = num+1000; break;
+      case 'IV': num = num+4; break;
+      case 'IX': num = num+9; break;
+      case 'XL': num = num+40; break;
+      case 'XC': num = num+90; break;
+      case 'CD': num = num+400; break;
+      case 'CM': num = num+900; break;
+    }
+  }
+  return num;
+}
