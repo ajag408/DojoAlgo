@@ -35,3 +35,30 @@ function parensValid(str){
     return false;
   }
 }
+
+Braces Valid
+
+function bracesValid(str){
+  var aTypeOpen = 0;
+  var aTypeClosed = 0;
+  var bTypeOpen = 0;
+  var bTypeClosed = 0;
+  var cTypeOpen = 0;
+  var cTypeClosed = 0;
+  for(var i = 0; i<str.length; i++){
+    switch (str[i]) {
+      case '(': aTypeOpen++; break;
+      case ')': aTypeClosed++; break;
+      case '[': bTypeOpen++; break;
+      case ']': bTypeClosed++; break;
+      case '{': cTypeOpen++; break;
+      case '}': cTypeClosed++; break;
+      default: break;
+    }
+  }
+  if(aTypeOpen == aTypeClosed && bTypeOpen == bTypeClosed && cTypeOpen == cTypeClosed){
+    
+  }else{
+    return false;
+  }
+}
