@@ -1,0 +1,37 @@
+Parens Valid
+
+function parensValid(str){
+  var numOpen = 0;
+  var numClosed = 0;
+  for(var i = 0; i<str.length; i++){
+    if(str[i] == '('){
+      numOpen += 1;
+    }
+    if(str[i] == ')'){
+      numClosed += 1;
+    }
+  }
+  if(numOpen == numClosed){
+    var open = false;
+    var openNum = 0;
+    for(var j = 0; j<str.length; j++){
+      if(str[j] == '('){
+        open = true;
+        openNum += 1;
+      }
+      if(str[j] == ')'){
+        if(open === false && openNum === 0){
+          return false;
+        }else{
+          open = false;
+          openNum -= 1;
+        }
+      }
+    }
+
+    return true;
+
+  }else{
+    return false;
+  }
+}
