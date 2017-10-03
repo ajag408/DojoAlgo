@@ -57,7 +57,53 @@ function bracesValid(str){
     }
   }
   if(aTypeOpen == aTypeClosed && bTypeOpen == bTypeClosed && cTypeOpen == cTypeClosed){
-    
+    var aOpen = false;
+    var bOpen = false;
+    var cOpen = false;
+    var aOpenNum = 0;
+    var bOpenNum = 0;
+    var cOpenNum = 0;
+    for(var j = 0; j<str.length; j++){
+      if(str[j] == '('){
+        aOpen = true;
+        aOpenNum += 1;
+      }
+      else if(str[j] == ')'){
+        if(aOpen === false && aOpenNum === 0){
+          return false;
+        }else{
+          aOpen = false;
+          aOpenNum -=1;
+        }
+      }
+      
+      else if(str[j] == '['){
+        bOpen = true;
+        bOpenNum += 1;
+      }
+      else if(str[j] == ']'){
+        if(bOpen === false && bOpenNum === 0){
+          return false;
+        }else{
+          bOpen = false;
+          bOpenNum -=1;
+        }
+      }
+      
+      else if(str[j] == '{'){
+        cOpen = true;
+        cOpenNum += 1;
+      } 
+      else if(str[j] == '}'){
+        if(cOpen === false && cOpenNum === 0){
+          return false;
+        }else{
+          cOpen = false;
+          cOpenNum -=1;
+        }
+      }
+    }
+    return true;
   }else{
     return false;
   }
