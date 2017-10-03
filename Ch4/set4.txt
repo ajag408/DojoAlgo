@@ -1,0 +1,90 @@
+Ch 4 P. 53
+
+Is Word Alphabetical
+
+function isAlphabetical(str){
+	numerized = []
+  for(var i = 0; i<str.length; i++){
+    if(str[i] == ' '){
+      continue;
+    } else if(str[i] == '.' || str[i] == '?' || str[i] == '!' || str[i] == ',' || str[i] == "'"){
+      continue;
+  	if(str[i] == 'A' || 'a'){
+    	numerized.push(1);
+    } 
+    ...
+  }
+  for(var j = 1; j<numerized.length; j++){
+  	if(numerized[j] < numerized[j-1]){
+    	return false;
+    }
+  }
+  return true;
+}
+
+D Gets Jiggy
+
+function swag(name){
+	first_letter = name[0];
+  stripped = []
+  for(var i = 1; i<name.length; i++){
+  	if(i == 1){
+    	secondCap = name[i].toUpperCase();
+      stripped.push(secondCap);
+    } else{
+  		stripped.push(name[i]);
+    }
+  }
+  stripped = stripped.join('');
+  output = stripped + ' to the ' + first_letter + '!'
+  return output
+}
+
+Common Suffix
+
+function suffix(arr){
+	commonSuffix = [];
+  reversed = [];
+  for(var i = 0; i<arr[0].length; i++){
+  	same = true;
+  	this_letter = arr[0][arr[0].length-1-i];
+    for(var j = 1; j<arr.length; j++){
+    	if(arr[j][arr[j].length-1-i] != this_letter){
+      	same = false;
+        break;
+      }
+    }
+    if(same == true){
+    	commonSuffix.push(this_letter);
+    } else{
+    	break;
+    }
+  }
+  for(var k = commonSuffix.length -1; k>=0; k--){
+  	reversed.push(commonSuffix[k]);
+  }
+  output = reversed.join('');
+  return output;
+}
+
+Book Index
+
+function bookIndex(arr){
+	outputArr = [];
+  for(var i = 0; i<arr.length; i++){
+  	if(arr[i+1] != arr[i] + 1){
+    	outputArr.push(arr[i]);
+    } else{
+    	start = i;
+    	while(arr[i+1] == arr[i] + 1){
+      	i++;
+      }
+      outputArr.push(arr[start]+'-'+arr[i]);
+    }
+  }
+  output = outputArr.join(', ')
+  return output
+}
+
+Drop the Mike
+
