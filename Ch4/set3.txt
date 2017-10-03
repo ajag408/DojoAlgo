@@ -1,3 +1,5 @@
+Ch4 P.52
+
 Parens Valid
 
 function parensValid(str){
@@ -131,4 +133,69 @@ function isPalindrome2(str){
     }
     return true;
   }
+}
+
+Longest Palindrome
+
+function longestPalindrome(str){
+	longest = [str[str.length-1]]
+	for(var i = str.length-2; i>=0; i--){
+  	palindrome =  true;
+    j = 1;
+    while(palindrome == true){
+    	if(str[i-j] == str[i+j]){
+      	j++;
+      } else{
+      	palindrome = false;
+        if(((i+j-1) - (i-j+1)) > longest.length){
+          longest = [];
+          for(var k = i-j+1; k< i+j; k++){
+            longest.push(str[k]);
+          }
+        }
+      }
+    }
+  }
+  
+  longest = longest.join('')
+  return longest
+}
+
+   Second
+
+function longestPalindrome2(str){
+  filtered = [];
+  for(var i = 0; i<str.length; i++){
+    if(str[i] == ' '){
+      continue;
+    } else if(str[i] == '.' || str[i] == '?' || str[i] == '!' || str[i] == ',' || str[i] == "'"){
+      continue;
+    } else if(str[i] == str[i].toUpperCase()){
+      filtered.push(str[i].toLowerCase());
+    } else{
+      filtered.push(str[i]);
+    }
+  }
+
+	longest = [filtered[filtered.length-1]]
+	for(var i = filtered.length-2; i>=0; i--){
+  	palindrome =  true;
+    j = 1;
+    while(palindrome == true){
+    	if(filtered[i-j] == filtered[i+j]){
+      	j++;
+      } else{
+      	palindrome = false;
+        if(((i+j-1) - (i-j+1)) > longest.length){
+          longest = [];
+          for(var k = i-j+1; k< i+j; k++){
+            longest.push(filtered[k]);
+          }
+        }
+      }
+    }
+  }
+  
+  longest = longest.join('')
+  return longest
 }
