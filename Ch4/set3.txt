@@ -57,54 +57,78 @@ function bracesValid(str){
     }
   }
   if(aTypeOpen == aTypeClosed && bTypeOpen == bTypeClosed && cTypeOpen == cTypeClosed){
-    var aOpen = false;
-    var bOpen = false;
-    var cOpen = false;
-    var aOpenNum = 0;
-    var bOpenNum = 0;
-    var cOpenNum = 0;
-    for(var j = 0; j<str.length; j++){
-      if(str[j] == '('){
-        aOpen = true;
-        aOpenNum += 1;
-      }
-      else if(str[j] == ')'){
-        if(aOpen === false && aOpenNum === 0){
+    arrOpen = [];
+    for(var k = 0; k<str.length; k++){
+      if(str[k] == '('){
+        arrOpen.push('a');
+      } else if(str[k] == '['){
+        arrOpen.push('b');
+      } else if(str[k] == '{'){
+        arrOpen.push('c');
+      } else if(str[k] == ')'){
+        if(arrOpen[arrOpen.length-1] == 'a'){
+          arrOpen.pop();
+        } else{
           return false;
-        }else{
-          aOpen = false;
-          aOpenNum -=1;
         }
-      }
-      
-      else if(str[j] == '['){
-        bOpen = true;
-        bOpenNum += 1;
-      }
-      else if(str[j] == ']'){
-        if(bOpen === false && bOpenNum === 0){
+      } else if(str[k] == ']'){
+        if(arrOpen[arrOpen.length-1] == 'b'){
+          arrOpen.pop();
+        } else{
           return false;
-        }else{
-          bOpen = false;
-          bOpenNum -=1;
         }
-      }
-      
-      else if(str[j] == '{'){
-        cOpen = true;
-        cOpenNum += 1;
-      } 
-      else if(str[j] == '}'){
-        if(cOpen === false && cOpenNum === 0){
+      } else if(str[k] == '}'){
+        if(arrOpen[arrOpen.length-1] == 'c'){
+          arrOpen.pop();
+        } else{
           return false;
-        }else{
-          cOpen = false;
-          cOpenNum -=1;
         }
       }
     }
-    return true;
+    return true; 
   }else{
     return false;
+  }
+}
+
+String: Is Palindrome
+
+function isPalindrome(str){
+  if(str.length%2 === 0){
+    return false
+  } else{
+    for(var i = 0; i<Math.floor(str.length/2); i++){
+      if(str[i] != str[str.length-1-i]){
+        return false;
+      }
+    }
+    return true;
+  }
+}
+
+   Second
+
+function isPalindrome2(str){
+  filtered = [];
+  for(var i = 0; i<str.length; i++){
+    if(str[i] == ' '){
+      continue;
+    } else if(str[i] == '.' || str[i] == '?' || str[i] == '!' || str[i] == ',' || str[i] == "'"){
+      continue;
+    } else if(str[i] == str[i].toUpperCase()){
+      filtered.push(str[i].toLowerCase());
+    } else{
+      filtered.push(str[i]);
+    }
+  }
+  if(filtered.length%2 === 0){
+    return false
+  } else{
+    for(var j = 0; j<Math.floor(filtered.length/2); j++){
+      if(filtered[j] != filtered[filtered.length-1-j]){
+        return false;
+      }
+    }
+    return true;
   }
 }
