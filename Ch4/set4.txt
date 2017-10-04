@@ -88,3 +88,31 @@ function bookIndex(arr){
 
 Drop the Mike
 
+function dropTheMike(str){
+	mutableArr = [];
+  for(var i = 0; i<str.length; i++){
+  	if(str[i] == 'M' && str[i+1] == 'i' && str[i+2] == 'k' && str[i+3] == 'e'){
+    	output = 'stunned silence';
+      return output;
+    }
+		if(mutableArr.length == 0 && str[i] == ' '){
+    	continue;
+    } else{
+    	if(str[i-1] == ' '){
+      	firstLetter = str[i].toUpperCase();
+        mutableArr.push(firstLetter);
+      } else{
+    		mutableArr.push(str[i]);
+      }
+    }
+  }
+  for(var j = mutableArr.length-1; j>=0; j++){
+		if(mutableArr[j] == ' '){
+    	mutableArr.pop();
+    } else{
+    	break;
+    }
+  }
+  output = mutableArr.join('');
+  return output;
+}

@@ -1,0 +1,31 @@
+Ch 4 P. 55
+
+Zip Arrays into Map
+
+function createAssoc(arr1, arr2){
+	var assocArr = {};
+	for(var i = 0; i<arr1.length; i++){
+  	assocArr[arr1[i]] = arr2[i];
+  }
+  return assocArr
+}
+
+Invert Hash
+
+function invertHash(assocArr){
+	invertAss = {};
+  for(key in assocArr){
+  	invertAss[assocArr[key]] = key
+  }
+  return invertAss;
+}
+
+Array: number of Values (without.Length)
+
+function determineLen(assocArr){
+	count = 0;
+  for(key in assocArr){
+  	count++;
+  }
+  return count
+}

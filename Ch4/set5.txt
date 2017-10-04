@@ -1,0 +1,37 @@
+Ch 4 P. 54
+
+Coin Change with Object
+
+function generateCoinChange(cents){
+  var a = Math.floor(cents/100);
+  var h = Math.floor((cents - 100*a)/50);
+  var q = Math.floor((cents - (100*a + 50*h))/25);
+  var d = Math.floor((cents-(100*a + 50*h + 25*q))/10);
+  var n = Math.floor((cents-(100*a + 50*h + 25*q+10*d))/5);
+  var p = cents - (100*a + 50*h + 25*q+10*d + 5*n);
+
+	var change = { 'dollars': a, 'half-dollars': h, 'quarters': q, 'dimes': d, 'nickels': n, 'pennies': p};
+  return change;
+}
+
+
+Max/Min/Average with Objects
+
+function tripleThreat(arr){
+	max = arr[0];
+  min = arr[0];
+  total = 0;
+  for(var i = 0; i<arr.length; i++){
+  	if(arr[i]>max){
+    	max = arr[i];
+    }
+    if(arr[i]<min){
+    	min = arr[i]
+    }
+    total = total + arr[i]
+  }
+  avg = total/arr.length
+  
+  var object = { 'max': max, 'min': min, 'avg': avg};
+  return object
+}

@@ -1,0 +1,68 @@
+Ch 4 P.56
+
+String.concat
+
+function concat(str, extraStrArr){
+	for(var i = 0; i<extraStrArr.length; i++){
+  	str = str + extraStrArr[i];
+  }
+  return str;
+}
+
+String.slice
+
+function slice(str, start, endArr){
+	newStr = ''
+	var end = str.length;
+	if(endArr.length>0){
+  	end = endArr[0];
+  }
+	for(var i = start; i<end; i++){
+  	newStr += str[i];
+  }
+  return newStr;
+}
+
+   Bonus
+
+function slice(str, start, endArr){
+	newStr = ''
+	if(start < 0){
+  	for(var i = str.length+start; i<str.length; i++){
+    	newStr += str[i];
+    }
+  } else {
+    var end = str.length;
+    if(endArr.length>0){
+      end = endArr[0];
+    }
+    for(var i = start; i<end; i++){
+      newStr += str[i];
+    }
+  }
+  return newStr;
+}
+
+String.trim
+
+function trim(str){
+	newStrArr = [];
+  for(var i = 0; i<str.length; i++){
+<!--   	console.log(str[i]); -->
+  	if(newStrArr.length === 0 && str[i] == ' '){
+    	continue;
+    } else{
+    	newStrArr.push(str[i]);
+    }
+  }
+  j = newStrArr.length-1;
+  while(newStrArr[j] == ' '){
+  	newStrArr.pop();
+    j--
+  }
+  newStr = newStrArr.join('');
+  return newStr
+}
+
+test = trim('   J  \n');
+console.log(test);
