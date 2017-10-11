@@ -48,8 +48,7 @@ String.trim
 function trim(str){
 	newStrArr = [];
   for(var i = 0; i<str.length; i++){
-<!--   	console.log(str[i]); -->
-  	if(newStrArr.length === 0 && str[i] == ' '){
+  	if(newStrArr.length === 0 && (str[i] == '\n' || str[i] == ' ' || str[i] == '\t')){
     	continue;
     } else{
     	newStrArr.push(str[i]);
@@ -64,5 +63,20 @@ function trim(str){
   return newStr
 }
 
-test = trim('   J  \n');
-console.log(test);
+String.split
+
+function split(str, separator, limit){
+  splitArr = []
+  if(separator = ''){
+  	for(var i = 0; i<str.length; i++){
+    	splitArr.push(str[i]);
+    }
+  } else {
+  	indexKeeper = [];
+    for(var i = 0; i<str.length; i++){
+      if(str[i] == separator){
+      	indexKeeper.push(i);
+      }
+    }
+  }
+}
