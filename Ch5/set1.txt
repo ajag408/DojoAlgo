@@ -1,0 +1,18 @@
+Ch 5 P. 59
+
+function ListNode(value){
+  this.val = value;
+  this.next = null;
+}
+
+List: Add Front
+
+function SList(){
+	this.head = ListNode('was first');
+  this.AddFront = function(){
+  	newNode = ListNode('Rudy');
+    this.head = newNode;
+    return this.head.val
+  }
+  return self;
+}
