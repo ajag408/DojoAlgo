@@ -67,16 +67,69 @@ String.split
 
 function split(str, separator, limit){
   splitArr = []
-  if(separator = ''){
+  if(separator == ''){
   	for(var i = 0; i<str.length; i++){
     	splitArr.push(str[i]);
     }
   } else {
-  	indexKeeper = [];
+  	indexKeeper = [0];
     for(var i = 0; i<str.length; i++){
       if(str[i] == separator){
       	indexKeeper.push(i);
       }
     }
+    indexKeeper.push(str.length)
+    for(var j = 0; j<indexKeeper.length; j++){
+    	if(j == indexKeeper.length-1){
+      	break;
+      }
+    	splitString = '';
+      if(j == 0){
+        for(var k = indexKeeper[j]; k<indexKeeper[j+1]; k++){
+          splitString += str[k];
+        }      	
+      } else{
+        for(var k = indexKeeper[j]+1; k<indexKeeper[j+1]; k++){
+          splitString += str[k];
+        }
+			}
+      splitArr.push(splitString);
+    }
+  }
+  if(limit.length != 0){
+  	for(var z = splitArr.length-1; z>limit[0]-1; z--){
+    	splitArr.pop();
+    }
+  }
+  return splitArr;
+}
+
+String.search
+
+function search(str, val){
+	first_letter = val[0];
+  foundIt = false;
+  thisInd = 0;
+  for(var i = 0; i<str.length; i++){
+  	var matchCounter = 0
+  	if(str[i] == first_letter){
+    	thisInd = i;
+    	for(j = 0; j<val.length; j++){
+      	if(str[i+j] == val[j]){
+        	matchCounter++;
+        } else{
+        	break;
+        }
+      }
+    }
+    if(matchCounter == val.length){
+    	foundIt = true;
+      break;
+    }
+  }
+  if(foundIt == true){
+  	return thisInd;
+  } else{
+  	return -1;
   }
 }
